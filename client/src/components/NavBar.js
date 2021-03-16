@@ -10,7 +10,7 @@ const NavBar = observer( () => {
     return (
         <Navbar bg="dark" variant="dark">
            <Container>
-               <NavLink style={{color:'white'}} to={SHOP_ROUTE}>Vilka-shop</NavLink>
+               <NavLink style={{color:'white'}} to={SHOP_ROUTE}>VILKA-shop</NavLink>
                {user.isAuth ?
                    <Nav className="ml-auto">
                        <Button variant={"outline-light"}>Admin</Button>

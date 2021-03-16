@@ -3,12 +3,19 @@ import {makeAutoObservable} from "mobx";
 export default class DeviceStore {
     constructor() {
         this._types = [
-            {id: 1, name: "Fridge"},
-            {id: 2, name: "Smartphones"}
+            {id: 1, name: "Fridges"},
+            {id: 2, name: "Smartphones"},
+            {id: 3, name: "TV"},
+            {id: 4, name: "MacBooks"},
+            {id: 5, name: "Smartphones"},
+
         ]
         this._brands = [
             {id: 1, name: "Samsung"},
-            {id: 2, name: "Apple"}
+            {id: 2, name: "Apple"},
+            {id: 3, name: "HP"},
+            {id: 4, name: "LG"},
+            {id: 5, name: "Xiaomi"},
         ]
         this._devices = [
             {id: 1, name: "Iphone 12 pro", price: 25000, rating:5, img:'https://cdn.dxomark.com/wp-content/uploads/medias/post-61183/iphone-12-pro-blue-hero.jpg'},
@@ -21,6 +28,8 @@ export default class DeviceStore {
             {id: 8, name: "Iphone 12 pro", price: 25000, rating:5, img:'https://cdn.dxomark.com/wp-content/uploads/medias/post-61183/iphone-12-pro-blue-hero.jpg'},
             {id: 9, name: "Iphone 12 pro", price: 25000, rating:5, img:'https://cdn.dxomark.com/wp-content/uploads/medias/post-61183/iphone-12-pro-blue-hero.jpg'},
         ]
+        this._selectedType = {}
+        this._selectedBrand = {}
         makeAutoObservable(this)
     }
 
@@ -33,6 +42,12 @@ export default class DeviceStore {
     setDevices(devices) {
         this._devices = devices
     }
+    setSelectedType(type) {
+        this._selectedType = type
+    }
+    setSelectedBrand(brand) {
+        this._selectedBrand = brand
+    }
 
     get types() {
         return this._types
@@ -42,5 +57,11 @@ export default class DeviceStore {
     }
     get devices() {
         return this._devices
+    }
+    get selectedType() {
+        return this._selectedType
+    }
+    get selectedBrand() {
+        return this._selectedBrand
     }
 }
